@@ -1,0 +1,14 @@
+/* 
+My sample less file
+
+simple classname style
+
+Markup: <button class="shadow-button {$modifiers}">button text</button>
+
+.secondary  - this is a sample classname
+
+Styleguide 3.1
+*/
+.mystyle {
+  color: red;
+}
