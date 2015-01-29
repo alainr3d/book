@@ -29,6 +29,10 @@ module.exports = function(grunt) {
                 }
             }
         },
+        lesslint: {
+        	src: ['components/**/**.less']
+        },
+
         styleguide: {
             options: {
                 framework: {
@@ -40,6 +44,10 @@ module.exports = function(grunt) {
                     'styleguide': 'components/**/*.less'
                 }]
             }
+        },
+        watch: {
+            files: ['components/**/*','phonegap/**/*','GruntFile.js'],
+            tasks: ['jshint','lesslint'],
         }
 
 
@@ -49,9 +57,11 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-less');
+    grunt.loadNpmTasks('grunt-lesslint');
     grunt.loadNpmTasks('grunt-styleguide');
+    grunt.loadNpmTasks('grunt-contrib-watch');
 
     // Default task(s).
-    grunt.registerTask('default', ['jshint', 'uglify', 'less', 'styleguide']);
+    grunt.registerTask('default', ['jshint', 'uglify', 'less','lesslint', 'styleguide','watch']);
 
 };
