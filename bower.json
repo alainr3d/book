@@ -6,5 +6,8 @@
     "Alain Dilig <alaindilig@gmail.com>"
   ],
   "license": "MIT",
-  "private": true
+  "private": true,
+  "dependencies": {
+    "jquery": "~2.1.3"
+  }
 }
