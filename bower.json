@@ -1,0 +1,10 @@
+{
+  "name": "book",
+  "version": "0.0.0",
+  "homepage": "https://github.com/alainr3d/book",
+  "authors": [
+    "Alain Dilig <alaindilig@gmail.com>"
+  ],
+  "license": "MIT",
+  "private": true
+}
