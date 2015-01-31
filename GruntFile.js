@@ -30,14 +30,26 @@ module.exports = function(grunt) {
             }
         },
         lesslint: {
-        	src: ['components/**/**.less']
+            src: ['components/**/**.less']
         },
 
         styleguide: {
             options: {
+                name: "test guide name",
                 framework: {
-                    name: 'kss'
+                    name: 'kss',
+                    options: {
+                        name: "Book style guide",
+                        css: 'guide-template/guide-template.css',
+                        js: 'guide-template/guide-template.js'
+                    }
+
+                },
+                template: {
+                    src: 'guide-template'
+                    //'node_modules/grunt-kss/node_modules/kss/gh-pages'
                 }
+
             },
             all: {
                 files: [{
@@ -46,8 +58,8 @@ module.exports = function(grunt) {
             }
         },
         watch: {
-            files: ['components/**/*','phonegap/**/*','GruntFile.js'],
-            tasks: ['jshint','lesslint'],
+            files: ['components/**/*', 'phonegap/**/*', 'GruntFile.js'],
+            tasks: ['jshint', 'lesslint', 'styleguide'],
         }
 
 
@@ -62,6 +74,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
 
     // Default task(s).
-    grunt.registerTask('default', ['jshint', 'uglify', 'less','lesslint', 'styleguide','watch']);
+    grunt.registerTask('default', ['jshint', 'uglify', 'less', 'lesslint', 'styleguide', 'watch']);
 
 };
