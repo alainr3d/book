@@ -46,8 +46,9 @@ module.exports = function(grunt) {
 
                 },
                 template: {
-                    src: 'guide-template'
-                    //'node_modules/grunt-kss/node_modules/kss/gh-pages'
+                    src: 'guide-template/kss-template'
+                    //'guide-template'
+                    
                 }
 
             },

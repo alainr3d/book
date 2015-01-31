@@ -20,53 +20,75 @@
             <h1 class="kss-doc-title"><a href="./index.html">Book UI Style Guide</a></h1>
           </header>
           <nav class="kss-nav">
-            <ul class="kss-menu" data-kss-ref="2">
+            <ul class="kss-menu" data-kss-ref="{{rootNumber}}">
               <li class="kss-menu-item"><a href="./"><span class="kss-ref">0</span><span class="kss-name">Overview</span></a></li>
-              <li class="kss-menu-item"><a href="section-1.html"><span class="kss-ref">1</span><span class="kss-name">Page</span></a></li>
-              <li class="kss-menu-item"><a href="section-2.html"><span class="kss-ref">2</span><span class="kss-name">Book</span></a></li>
+              {{#eachRoot}}
+              <li class="kss-menu-item"><a href="section-{{reference}}.html"><span class="kss-ref">{{reference}}</span><span class="kss-name">{{header}}</span></a></li>
+              {{/eachRoot}}
             </ul>
+            {{#if overview}}
+            {{else}}
             <ul class="kss-menu-child">
-              <li class="kss-menu-item"><a href="#section-2.1"><span class="kss-ref">2.1</span><span class="kss-name">Blue Book</span></a></li>
+              {{#eachSection rootNumber}}
+              {{#ifDepth 1}}
+              {{else}}
+              <li class="kss-menu-item"><a href="#section-{{reference}}"><span class="kss-ref">{{reference}}</span><span class="kss-name">{{header}}</span></a></li>
+              {{/ifDepth}}
+              {{/eachSection}}
             </ul>
+            {{/if}}
           </nav>
         </div>
       </div>
       <div class="kss-content">
         <article class="kss-article">
-          <section id="section-2" class="kss-section kss-depth-1">
-            <h1 class="kss-title"><span class="kss-ref">2</span> Book</h1>
+          {{#if overview}}
+          <section id="section-0" class="kss-section kss-overview">
+            {{{overview}}}
+          </section>
+          {{else}}
+          {{#eachSection rootNumber}}
+          <section id="section-{{reference}}" class="kss-section kss-depth-{{refDepth}}">
+            <h1 class="kss-title"><span class="kss-ref">{{reference}}</span> {{header}}</h1>
+            {{#if markup}}
+            {{#if description}}
             <div class="kss-description">
-              <p>test something</p>
-
+              {{{description}}}
             </div>
+            {{/if}}
             <div class="kss-modifier-block">
               <div class="kss-modifier kss-modifier-original">
                 <div class="kss-modifier-example">
-                  <h2 class="testClass">Hello</h2>
+                  {{modifierMarkup}}
                 </div>
               </div>
-              <div class="kss-markup">
-                <pre><code data-language="html">&lt;h2 class=&quot;testClass&quot;&gt;Hello&lt;/h2&gt;</code></pre>
-              </div>
-            </div>
-          </section>
-          <section id="section-2.1" class="kss-section kss-depth-2">
-            <h1 class="kss-title"><span class="kss-ref">2.1</span> Blue Book</h1>
-            <div class="kss-description">
-              <p>test something</p>
-
-            </div>
-            <div class="kss-modifier-block">
-              <div class="kss-modifier kss-modifier-original">
+              {{#eachModifier}}
+              <div class="kss-modifier">
+                <div class="kss-modifier-head">
+                  <div class="kss-modifier-name">{{name}}</div>
+                  <div class="kss-modifier-description">
+                    {{{description}}}
+                  </div>
+                </div>
                 <div class="kss-modifier-example">
-                  <h2 class="testClassBlue">Hello</h2>
+                  {{modifierMarkup}}
                 </div>
               </div>
+              {{/eachModifier}}
               <div class="kss-markup">
-                <pre><code data-language="html">&lt;h2 class=&quot;testClassBlue&quot;&gt;Hello&lt;/h2&gt;</code></pre>
+                <pre><code data-language="html">{{markup}}</code></pre>
               </div>
             </div>
+            {{else}}
+            {{#if description}}
+            <div class="kss-description">
+              {{{description}}}
+            </div>
+            {{/if}}
+            {{/if}}
           </section>
+          {{/eachSection}}
+          {{/if}}
         </article>
         <footer class="kss-footer">
           <div>Created using <a href="https://github.com/hughsk/kss-node">kss-node</a> and <a href="https://github.com/htanjo/kss-node-template">kss-node-template</a>.</div>

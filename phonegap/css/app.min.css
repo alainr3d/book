@@ -1,16 +1,11 @@
-/* 
-Book
-
-simple classname style
-
-Markup: <button class="shadow-button {$modifiers}">button text</button>
-
-.secondary  - this is a sample classname
-
-Styleguide 1.0
-*/
-.mystyle {
-  color: red;
+.btn {
+  background: #83B81B;
+  border: 2px solid #83B81B;
+  color: #fff;
+  font-family: sans-serif;
+  font-size: 0.75em;
+  padding: 1em;
+  text-decoration: none;
 }
 
 /* 
