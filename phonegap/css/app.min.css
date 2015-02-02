@@ -1,24 +1,30 @@
-.btn {
-  background: #83B81B;
-  border: 2px solid #83B81B;
-  color: #fff;
-  font-family: sans-serif;
-  font-size: 0.75em;
-  padding: 1em;
-  text-decoration: none;
+/*
+Book
+
+a book
+
+Markup:
+<h2 class="testclass2">hello world</h2>
+
+Styleguide 2
+*/
+.testclass2 {
+  color: yellow;
+  background-color: green;
 }
 
-/* 
+
+/*
 Page
 
-simple classname style
+a page
 
-Markup: <button class="shadow-button {$modifiers}">button text</button>
+Markup:
+<h2 class="testclass">hello world</h2>
 
-.secondary  - this is a sample classname
-
-Styleguide 2.0
+Styleguide 1
 */
-.mystyle {
-  color: red;
+.testclass {
+  color: brown;
+  background-color: #444;
 }

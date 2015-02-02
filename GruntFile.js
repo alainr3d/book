@@ -25,14 +25,13 @@ module.exports = function(grunt) {
                     paths: ["components"]
                 },
                 files: {
-                    "phonegap/css/app.min.css": "components/**/**.less"
+                    "phonegap/css/app.min.css": ["components/**/*.less"]
                 }
             }
         },
         lesslint: {
             src: ['components/**/**.less']
         },
-
         styleguide: {
             options: {
                 name: "test guide name",
@@ -40,8 +39,7 @@ module.exports = function(grunt) {
                     name: 'kss',
                     options: {
                         name: "Book style guide",
-                        css: 'guide-template/guide-template.css',
-                        js: 'guide-template/guide-template.js'
+                        css: 'phonegap/css/app.min.css'
                     }
 
                 },
@@ -52,15 +50,17 @@ module.exports = function(grunt) {
                 }
 
             },
-            all: {
-                files: [{
-                    'styleguide': 'components/**/*.less'
-                }]
+            dist: {
+
+                files: {
+                  'styleguide': 'components/**/*.less'
+                }   
+
             }
         },
         watch: {
-            files: ['components/**/*', 'phonegap/**/*', 'GruntFile.js'],
-            tasks: ['jshint', 'lesslint', 'styleguide'],
+            files: ['components/**/*', 'phonegap/**/*', 'GruntFile.js','guide-template'],
+            tasks: ['jshint','lesslint','less','styleguide'],
         }
 
 
@@ -75,6 +75,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
 
     // Default task(s).
-    grunt.registerTask('default', ['jshint', 'uglify', 'less', 'lesslint', 'styleguide', 'watch']);
+    grunt.registerTask('default', ['jshint', 'uglify', 'less', 'lesslint','watch']);
+    grunt.registerTask('styles', ['less','styleguide']);
 
 };

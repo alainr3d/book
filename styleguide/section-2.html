@@ -11,6 +11,7 @@
     <!--[if lt IE 9]>
     <script src="public/html5shiv.js"></script>
     <![endif]-->
+    <script type="text/javascript" src="public/mustache.min.js"></script>
   </head>
   <body id="kss-node">
     <div class="kss-wrapper">
@@ -21,12 +22,11 @@
           </header>
           <nav class="kss-nav">
             <ul class="kss-menu" data-kss-ref="2">
-              <li class="kss-menu-item"><a href="./"><span class="kss-ref">0</span><span class="kss-name">Overview</span></a></li>
+              <li class="kss-menu-item"><a href="./index.html"><span class="kss-ref">0</span><span class="kss-name">Overview</span></a></li>
               <li class="kss-menu-item"><a href="section-1.html"><span class="kss-ref">1</span><span class="kss-name">Page</span></a></li>
               <li class="kss-menu-item"><a href="section-2.html"><span class="kss-ref">2</span><span class="kss-name">Book</span></a></li>
             </ul>
             <ul class="kss-menu-child">
-              <li class="kss-menu-item"><a href="#section-2.1"><span class="kss-ref">2.1</span><span class="kss-name">Blue Book</span></a></li>
             </ul>
           </nav>
         </div>
@@ -36,34 +36,17 @@
           <section id="section-2" class="kss-section kss-depth-1">
             <h1 class="kss-title"><span class="kss-ref">2</span> Book</h1>
             <div class="kss-description">
-              <p>test something</p>
+              <p>a book</p>
 
             </div>
             <div class="kss-modifier-block">
               <div class="kss-modifier kss-modifier-original">
                 <div class="kss-modifier-example">
-                  <h2 class="testClass">Hello</h2>
+                  <h2 class="testclass2">hello world</h2>
                 </div>
               </div>
               <div class="kss-markup">
-                <pre><code data-language="html">&lt;h2 class=&quot;testClass&quot;&gt;Hello&lt;/h2&gt;</code></pre>
-              </div>
-            </div>
-          </section>
-          <section id="section-2.1" class="kss-section kss-depth-2">
-            <h1 class="kss-title"><span class="kss-ref">2.1</span> Blue Book</h1>
-            <div class="kss-description">
-              <p>test something</p>
-
-            </div>
-            <div class="kss-modifier-block">
-              <div class="kss-modifier kss-modifier-original">
-                <div class="kss-modifier-example">
-                  <h2 class="testClassBlue">Hello</h2>
-                </div>
-              </div>
-              <div class="kss-markup">
-                <pre><code data-language="html">&lt;h2 class=&quot;testClassBlue&quot;&gt;Hello&lt;/h2&gt;</code></pre>
+                <pre><code data-language="html">&lt;h2 class=&quot;testclass2&quot;&gt;hello world&lt;/h2&gt;</code></pre>
               </div>
             </div>
           </section>
@@ -79,6 +62,7 @@
     <script src="public/rainbow.min.js"></script>
     <!--<![endif]-->
     <script src="public/main.js"></script>
+
 
     <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
   </body>

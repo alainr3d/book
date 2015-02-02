@@ -11,6 +11,7 @@
     <!--[if lt IE 9]>
     <script src="public/html5shiv.js"></script>
     <![endif]-->
+    <script type="text/javascript" src="public/mustache.min.js"></script>
   </head>
   <body id="kss-node">
     <div class="kss-wrapper">
@@ -21,7 +22,7 @@
           </header>
           <nav class="kss-nav">
             <ul class="kss-menu" data-kss-ref="{{rootNumber}}">
-              <li class="kss-menu-item"><a href="./"><span class="kss-ref">0</span><span class="kss-name">Overview</span></a></li>
+              <li class="kss-menu-item"><a href="./index.html"><span class="kss-ref">0</span><span class="kss-name">Overview</span></a></li>
               {{#eachRoot}}
               <li class="kss-menu-item"><a href="section-{{reference}}.html"><span class="kss-ref">{{reference}}</span><span class="kss-name">{{header}}</span></a></li>
               {{/eachRoot}}
@@ -101,6 +102,7 @@
     <script src="public/rainbow.min.js"></script>
     <!--<![endif]-->
     <script src="public/main.js"></script>
+
 
     <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
   </body>
