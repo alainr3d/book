@@ -1,0 +1,30 @@
+/*
+Book
+
+a book
+
+Markup:
+<h2 class="testclass2">hello world</h2>
+
+Styleguide 2
+*/
+.testclass2 {
+  color: yellow;
+  background-color: green;
+}
+
+
+/*
+Page
+
+a page
+
+Markup:
+<h2 class="testclass">hello world</h2>
+
+Styleguide 1
+*/
+.testclass {
+  color: brown;
+  background-color: #444;
+}

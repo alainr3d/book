@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <title>kss-node Styleguide</title>
+    <title>Book Styleguide</title>
     <meta name="description" content="" />
     <meta name="generator" content="kss-node" />
     <link rel="stylesheet" href="public/kss.css" />
@@ -11,6 +11,7 @@
     <!--[if lt IE 9]>
     <script src="public/html5shiv.js"></script>
     <![endif]-->
+    <script src="public/jquery-1.9.1.min.js"></script>
     <script type="text/javascript" src="public/mustache.min.js"></script>
   </head>
   <body id="kss-node">
@@ -42,7 +43,23 @@
             <div class="kss-modifier-block">
               <div class="kss-modifier kss-modifier-original">
                 <div class="kss-modifier-example">
-                  <h2 class="testclass2">hello world</h2>
+                <!--responsive template-->
+                    <div class="mu-template">
+                      <span class="mu-label">320</span>
+                      <iframe class="mu-iframe" width="320px" frameborder="0" scrolling="no" ></iframe>
+                      <script class="mu-scripttemplate" type="text/template">
+                        <h2 class="testclass2">hello world</h2>
+                      </script>
+                    </div>
+
+                    <div class="mu-template">
+                      <span class="mu-label">768</span>
+                      <iframe class="mu-iframe" width="768px" frameborder="0" scrolling="no" ></iframe>
+                      <script class="mu-scripttemplate" type="text/template">
+                        <h2 class="testclass2">hello world</h2>
+                      </script>
+                    </div>
+
                 </div>
               </div>
               <div class="kss-markup">
@@ -56,8 +73,49 @@
         </footer>
       </div>
     </div>
+    <style>
+    .mu-label{
+      vertical-align: top;
+      font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+      color:#cccccc;
+      font-weight: normal;
+
+    }
+    .mu-iframe{
+      border: 1px solid #cccccc;
+    }
+    </style>
+    <script type="text/javascript">
+      (function(){
+
+        var $allTemplates = $('.mu-template');
+        window.all = $allTemplates;
+
+        for (var i = 0; i < $allTemplates.length; i++) {
+
+            var $template = $($allTemplates[i]);
+
+            var $frame = $template.find('.mu-iframe');
+            var $scriptTemplate = $template.find('.mu-scripttemplate');
+
+            //get link tags
+            var allLinks = '';
+
+            $('link').each(function(link){
+              allLinks = allLinks + this.outerHTML
+            });
+
+            $frame.get()[0].contentWindow.document.write(allLinks + $scriptTemplate.html());
+
+            $frame.css('height', $frame.get()[0].contentWindow.document.body.scrollHeight + 'px');
+
+        };
+
+
+      })();
+      
+    </script>
     <script src="public/kss.js"></script>
-    <script src="public/jquery-1.9.1.min.js"></script>
     <!--[if gt IE 8]><!-->
     <script src="public/rainbow.min.js"></script>
     <!--<![endif]-->

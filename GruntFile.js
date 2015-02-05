@@ -19,13 +19,15 @@ module.exports = function(grunt) {
                 dest: 'phonegap/js/app.min.js'
             }
         },
+        clean :["styleguide"],
         less: {
             development: {
                 options: {
                     paths: ["components"]
                 },
                 files: {
-                    "phonegap/css/app.min.css": ["components/**/*.less"]
+                    "phonegap/css/app.min.css": ["components/**/*.less"],
+                    "components/docs/styleguide.css": ["components/**/*.less"]
                 }
             }
         },
@@ -38,13 +40,13 @@ module.exports = function(grunt) {
                 framework: {
                     name: 'kss',
                     options: {
-                        name: "Book style guide",
-                        css: 'phonegap/css/app.min.css'
+                        name: "Book style guide"//,
+                        //css: 'phonegap/css/app.min.css'
                     }
 
                 },
                 template: {
-                    src: 'guide-template/kss-template'
+                    src: 'guide-template/book-kss-template'
                     //'guide-template'
                     
                 }
@@ -53,20 +55,20 @@ module.exports = function(grunt) {
             dist: {
 
                 files: {
-                  'styleguide': 'components/**/*.less'
+                  'styleguide': 'components/docs/styleguide.css'
                 }   
 
             }
         },
         watch: {
             files: ['components/**/*', 'phonegap/**/*', 'GruntFile.js','guide-template'],
-            tasks: ['jshint','lesslint','less','styleguide'],
+            tasks: ['jshint','lesslint','clean','less','styleguide'],
         }
 
 
     });
 
-    // Load the plugin that provides the "uglify" task.
+    grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-less');
@@ -76,6 +78,6 @@ module.exports = function(grunt) {
 
     // Default task(s).
     grunt.registerTask('default', ['jshint', 'uglify', 'less', 'lesslint','watch']);
-    grunt.registerTask('styles', ['less','styleguide']);
+    grunt.registerTask('styles', ['clean','less','styleguide']);
 
 };
