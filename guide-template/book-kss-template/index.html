@@ -52,6 +52,7 @@
           {{#eachSection rootNumber}}
           <section id="section-{{reference}}" class="kss-section kss-depth-{{refDepth}}">
             <h1 class="kss-title"><span class="kss-ref">{{reference}}</span> {{header}}</h1>
+
             {{#if markup}}
             {{#if description}}
             <div class="kss-description">
@@ -61,23 +62,33 @@
             <div class="kss-modifier-block">
               <div class="kss-modifier kss-modifier-original">
                 <div class="kss-modifier-example">
-                <!--responsive template-->
-                    <div class="mu-template">
-                      <span class="mu-label">320</span>
-                      <iframe class="mu-iframe" width="320px" frameborder="0" scrolling="no" ></iframe>
-                      <script class="mu-scripttemplate" type="text/template">
-                        {{modifierMarkup}}
-                      </script>
-                    </div>
+                  
+                      {{#if responsiveMarkup}}
 
-                    <div class="mu-template">
-                      <span class="mu-label">768</span>
-                      <iframe class="mu-iframe" width="768px" frameborder="0" scrolling="no" ></iframe>
-                      <script class="mu-scripttemplate" type="text/template">
-                        {{modifierMarkup}}
-                      </script>
-                    </div>
+                        <!-- responsive template -->
+                        <div class="mu-template">
+                          <span class="mu-label">320</span>
+                          <iframe class="mu-iframe" width="320px" frameborder="0" scrolling="no" ></iframe>
+                          <script class="mu-scripttemplate" type="text/template">
+                            {{modifierMarkup}}
+                          </script>
+                        </div>
 
+                        <div class="mu-template">
+                          <span class="mu-label">768</span>
+                          <iframe class="mu-iframe" width="768px" frameborder="0" scrolling="no" ></iframe>
+                          <script class="mu-scripttemplate" type="text/template">
+                            {{modifierMarkup}}
+                          </script>
+                        </div>
+                        <!-- /responsive template-->
+
+                      {{else}}
+
+                        {{modifierMarkup}}
+
+                      {{/if}}
+                      
                 </div>
               </div>
               {{#eachModifier}}
@@ -97,6 +108,7 @@
                 <pre><code data-language="html">{{markup}}</code></pre>
               </div>
             </div>
+
             {{else}}
             {{#if description}}
             <div class="kss-description">

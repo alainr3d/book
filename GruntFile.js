@@ -62,7 +62,7 @@ module.exports = function(grunt) {
         },
         watch: {
             files: ['components/**/*', 'phonegap/**/*', 'GruntFile.js','guide-template'],
-            tasks: ['jshint','lesslint','clean','less','styleguide'],
+            tasks: ['less','styleguide'],
         }
 
 

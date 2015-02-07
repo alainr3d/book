@@ -25,6 +25,7 @@
             <ul class="kss-menu" data-kss-ref="1">
               <li class="kss-menu-item"><a href="./index.html"><span class="kss-ref">0</span><span class="kss-name">Overview</span></a></li>
               <li class="kss-menu-item"><a href="section-1.html"><span class="kss-ref">1</span><span class="kss-name">Page</span></a></li>
+              <li class="kss-menu-item"><a href="section-1.html"><span class="kss-ref">1</span><span class="kss-name"></span></a></li>
               <li class="kss-menu-item"><a href="section-2.html"><span class="kss-ref">2</span><span class="kss-name">Book</span></a></li>
             </ul>
             <ul class="kss-menu-child">
@@ -36,6 +37,7 @@
         <article class="kss-article">
           <section id="section-1" class="kss-section kss-depth-1">
             <h1 class="kss-title"><span class="kss-ref">1</span> Page</h1>
+
             <div class="kss-description">
               <p>a page</p>
 
@@ -43,29 +45,53 @@
             <div class="kss-modifier-block">
               <div class="kss-modifier kss-modifier-original">
                 <div class="kss-modifier-example">
-                <!--responsive template-->
-                    <div class="mu-template">
-                      <span class="mu-label">320</span>
-                      <iframe class="mu-iframe" width="320px" frameborder="0" scrolling="no" ></iframe>
-                      <script class="mu-scripttemplate" type="text/template">
-                        <h2 class="testclass">hello world</h2>
-                      </script>
-                    </div>
+                  
 
-                    <div class="mu-template">
-                      <span class="mu-label">768</span>
-                      <iframe class="mu-iframe" width="768px" frameborder="0" scrolling="no" ></iframe>
-                      <script class="mu-scripttemplate" type="text/template">
-                        <h2 class="testclass">hello world</h2>
-                      </script>
-                    </div>
+                        <!-- responsive template -->
+                        <div class="mu-template">
+                          <span class="mu-label">320</span>
+                          <iframe class="mu-iframe" width="320px" frameborder="0" scrolling="no" ></iframe>
+                          <script class="mu-scripttemplate" type="text/template">
+                            <test class="page" style="">hello world</test>
+                          </script>
+                        </div>
 
+                        <div class="mu-template">
+                          <span class="mu-label">768</span>
+                          <iframe class="mu-iframe" width="768px" frameborder="0" scrolling="no" ></iframe>
+                          <script class="mu-scripttemplate" type="text/template">
+                            <test class="page" style="">hello world</test>
+                          </script>
+                        </div>
+                        <!-- /responsive template-->
+
+                      
                 </div>
               </div>
               <div class="kss-markup">
-                <pre><code data-language="html">&lt;h2 class=&quot;testclass&quot;&gt;hello world&lt;/h2&gt;</code></pre>
+                <pre><code data-language="html">&lt;test class=&quot;page&quot; style=&quot;&quot;&gt;hello world&lt;/test&gt;</code></pre>
               </div>
             </div>
+
+          </section>
+          <section id="section-1" class="kss-section kss-depth-1">
+            <h1 class="kss-title"><span class="kss-ref">1</span> </h1>
+
+            <div class="kss-modifier-block">
+              <div class="kss-modifier kss-modifier-original">
+                <div class="kss-modifier-example">
+                  
+
+                        <article class="page" style="">hello world</article>
+
+                      
+                </div>
+              </div>
+              <div class="kss-markup">
+                <pre><code data-language="html">&lt;article class=&quot;page&quot; style=&quot;&quot;&gt;hello world&lt;/article&gt;</code></pre>
+              </div>
+            </div>
+
           </section>
         </article>
         <footer class="kss-footer">
