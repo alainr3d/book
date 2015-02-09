@@ -1,24 +1,72 @@
 /*
 Page
 
-a page
+a page of some sort
 
 ResponsiveMarkup:
-<test class="page" style="">hello world</test>
+<section class="pages">
+	<article class="page" style="height:540px;">hello world</article>
+</section>
 
-Styleguide 1
+js-includes:
+["../components/page/page.js","../components/page/page-test.js"]
+
+Styleguide 1 
 */
 
-.page{
-	color:orange;
-	background-color: #ddd;
+@bgColor : green;
+@textColor : red;
+
+.page {
+	color: @textColor;
+	background-color: @bgColor;
+
+	height: 100%;
+	width: 100%;
+	box-sizing: border-box ;
+	position: absolute;
+
+	overflow: hidden;
+	-webkit-transform-origin: 0% 50%;
+	transform-origin: 0% 50%;
+	/* x,y */
+	-webkit-transform: translate(0%,0);
+	transform: translate(0%,0);
+
+	/* flipping */
+	/*
+	-webkit-transform: rotateY(24deg);
+	-webkit-transform: translate(0%,0);
+	*/
 }
 
-/*
+.pages{
 
+    height:100%;
+    width:100%;
+    background-color:#aeaeae;
+    overflow:hidden;
+    
+    perspective: 1200px;
+    -webkit-perspective: 1200px;
 
-Markup:
-<article class="page" style="">hello world</article>
+    /* transition */
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    
+    -webkit-transition:transform 0.3s ease-in;
+    -webkit-transition-timing-function: cubic-bezier(0.175, 0.885, 0.470, 1.515);
+    transition: -webkit-transform 0.3s ease-in;
+    transition-timing-function: cubic-bezier(0.175, 0.885, 0.470, 1.515);
+}
 
-Styleguide 1
-*/
+@media (min-width: 321px) {
+
+  .page {
+
+	color: green;
+	background-color: gold;
+
+  }
+
+}

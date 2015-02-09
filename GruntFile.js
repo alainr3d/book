@@ -78,6 +78,6 @@ module.exports = function(grunt) {
 
     // Default task(s).
     grunt.registerTask('default', ['jshint', 'uglify', 'less', 'lesslint','watch']);
-    grunt.registerTask('styles', ['clean','less','styleguide']);
+    grunt.registerTask('styles', ['less','styleguide']);
 
 };

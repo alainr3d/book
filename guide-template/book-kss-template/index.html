@@ -88,6 +88,12 @@
                         {{modifierMarkup}}
 
                       {{/if}}
+
+                      {{#if jsIncludes}}
+
+                        <template class="js-includes" data-includes='{{{jsIncludes}}}'></template>
+
+                      {{/if }}
                       
                 </div>
               </div>
@@ -116,6 +122,7 @@
             </div>
             {{/if}}
             {{/if}}
+
           </section>
           {{/eachSection}}
           {{/if}}
@@ -125,6 +132,7 @@
         </footer>
       </div>
     </div>
+
     <style>
     .mu-label{
       vertical-align: top;
@@ -136,6 +144,11 @@
     .mu-iframe{
       border: 1px solid #cccccc;
     }
+
+    p:contains("js-includes"){
+      color: #cdcdcd;
+    }
+
     </style>
     <script type="text/javascript">
       (function(){
@@ -150,6 +163,9 @@
             var $frame = $template.find('.mu-iframe');
             var $scriptTemplate = $template.find('.mu-scripttemplate');
 
+            var frameDoc = $frame.get()[0];
+            var innerDoc = frameDoc.contentWindow.document;
+
             //get link tags
             var allLinks = '';
 
@@ -157,14 +173,70 @@
               allLinks = allLinks + this.outerHTML
             });
 
-            $frame.get()[0].contentWindow.document.write(allLinks + $scriptTemplate.html());
+            frameDoc.contentWindow.document.write(allLinks + $scriptTemplate.html());
 
-            $frame.css('height', $frame.get()[0].contentWindow.document.body.scrollHeight + 'px');
+            $frame.css('height', frameDoc.contentWindow.document.body.scrollHeight + 'px');
+
+            var headEl = innerDoc.querySelector('head');
+
+
+            //get all includes
+            var allIncludes = document.querySelectorAll('.js-includes');
+
+            for (var j = 0; j < allIncludes.length; j++) {
+
+              var $include = $(allIncludes[j]);
+
+              var allJSIncludes = $include.data('includes');
+
+              for (var k = 0; k < allJSIncludes.length; k++) {
+
+                    var scriptIncludePath = allJSIncludes[k];
+
+                    var script = innerDoc.createElement('script');
+                    script.async = false;
+                    script.type = 'text/javascript';
+
+                    script.onreadystatechange = function() {
+                        // if (this.readyState == 'complete') { callFunctionFromScript(); }
+                    }
+
+                    script.src = scriptIncludePath;
+                    
+                    headEl.appendChild(script);
+
+              }
+
+            }
+
+
+
+        };
+
+        $('p:contains("js-includes")').css("display","none");
+
+
+      })();
+
+      function getIncludes(){
+
+        var $allJS = $('.js-includes');
+        window.all = $allJS;
+
+        for (var i = 0; i < $allJS.length; i++) {
+
+            var $jsTemplate = $($allJS[i]);
+
+            var allIncludes = jsTemplate.data("includes");
+
+            console.log(allIncludes);
 
         };
 
 
-      })();
+      };
+
+      //$(document).ready(getIncludes);
       
     </script>
     <script src="public/kss.js"></script>
